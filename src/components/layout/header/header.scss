@@ -10,7 +10,7 @@
         align-items: center;
         justify-content: none;
         gap: 20px;
-        padding: 15px;
+        padding: 5px;
 
         p {
             display: flex;
@@ -45,11 +45,11 @@
 }
 
 .nav {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     justify-content: space-between;
     align-items: center;
-    transition: 5s;
+    // transition: 5s;
 
     &__logo {
         display: flex;
@@ -63,14 +63,30 @@
     }
 
     &__links {
-        // position: absolute;
         width: 60%;
         display: flex;
         justify-content: space-between;
         flex-direction: row;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 500;
         color: #353535;
+        z-index: 99;
+    }
+
+    &__links-btn {
+        display: none !important;
+        // visibility: hidden;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0px 20px;
+
+        button {
+            border: none;
+            font-size: 18px;
+            background-color: #fff;
+        }
     }
 
     &__burger-btn {
@@ -80,22 +96,35 @@
         background-color: transparent;
     }
 
-    &__burger-sidebar {
-        // position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 50px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 45%;
-        height: 100vh;
-        background-color: #fff;
-        border-right: 1px solid #ddd;
+    .arrow {
+        display: none;
     }
+
 }
+
+
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    // padding: 15px;
+    background-color: #fff;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #aaa2;
+    backdrop-filter: blur(3px);
+}
+
+
+
+
 
 @media (max-width: 960px) {
     .nav__links {
@@ -108,8 +137,45 @@
         display: block;
     }
 
+    .nav__links-btn {
+        display: block !important;
+    }
+
     .nav__links {
-        display: none;
+        padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 40px;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 55%;
+        height: 100vh;
+        background-color: #fff;
+        border-right: 1px solid #ddd;
+        transition: .4s;
+        z-index: 99;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0px 20px;
+        }
+
+        a:hover {
+            border-left: 2px ;
+        }
+    }
+    .arrow {
+        display: block !important;
+    }
+    .show__list{
+        left: 0;
+        transition: .4s;
     }
 }
 

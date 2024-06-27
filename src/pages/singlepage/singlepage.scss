@@ -1,0 +1,210 @@
+.singlepage {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    &__img {
+
+        width: 35%;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__content {
+        width: 65%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__content-top {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border-bottom: 2px solid #f6f7f8;
+
+        h1 {
+            // font-size: 24px;
+            font-weight: 500;
+        }
+
+        &__rating {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 20px;
+
+            p {
+                color: rgb(193, 200, 206);
+            }
+        }
+
+        &__rating-rate {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            color: #ffc600;
+        }
+    }
+
+    &__content-middle {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border-bottom: 2px solid #f6f7f8;
+
+        &__price {
+            p {
+                font-size: 20px;
+                font-weight: 700;
+                color: rgb(64, 191, 255);
+
+                span {
+                    margin-left: 30px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: rgb(251, 113, 129);
+                }
+            }
+        }
+
+        &__desc {
+            margin-bottom: 20px;
+            color: #9098b1;
+        }
+    }
+
+    &__content-bottom {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #f6f7f8;
+
+        &__counter {
+            display: flex;
+            flex-direction: row;
+            border: 1px solid transparent;
+
+            // border-radius: 5px;
+            button {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid transparent;
+                background-color: #f6f7f8;
+                color: #33a0ff;
+            }
+
+            button:nth-child(2) {
+                color: black;
+                font-size: 16px;
+                font-weight: 500;
+            }
+        }
+
+        &__btns {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+
+        }
+
+        &__addtocart,
+        &__heart {
+            height: 40px;
+            width: 40px;
+            font-size: 16px;
+            color: #33a0ff;
+            background-color: rgba(51, 160, 255, .2);
+            border: 1px solid transparent;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__addtocart {
+            height: 40px;
+            width: 140px;
+            gap: 10px;  
+        }
+
+        &__social {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+
+            button {
+                width: 25%;
+                height: 40px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                font-size: 16px;
+                color: #fff;
+                border: 1px solid transparent;
+                border-radius: 5px;
+            }
+
+            button:first-child {
+                background-color: #385c8e;
+            }
+
+            button:last-child {
+                background-color:  #03a9f4;
+            }
+        }
+    }
+}
+
+.description {
+    margin-top: 100px;
+    width: 70%;
+    padding: 30px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background: rgb(250, 250, 251);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    h3 {
+        border-bottom: 2px solid #f6f7f8;
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 650px) {
+    .singlepage {
+        padding: 20px 0px;
+        flex-direction: column;
+
+        &__img {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 60%;
+            }
+        }
+
+        &__content {
+            width: 100%;
+        }
+    }
+}

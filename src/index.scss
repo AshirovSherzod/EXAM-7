@@ -26,10 +26,25 @@ button {
     flex-direction: row;
 }
 
-.line-clamp {}
+.line-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
 
+.products {
+    margin-top: 350px;
+}
 
+.description {
+    margin-top: 100px;
+}
 
-
+@media (max-width: 800px) {
+    .products {
+        margin-top: 80px;
+    }
+}
 
 

@@ -1,15 +1,116 @@
 .hero {
+    position: relative;
     height: 650px;
-    background-image: url("../../assets/images/hero-bg.png");
+    background-image: url("../../assets/images/hero-bg2.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: .3s;
+    z-index: -1;
 
     h1 {
         color: #fff;
         font-size: 64px;
         font-weight: 700;
+    }
+}
+
+.under-hero {
+    position: absolute;
+    top: 540px;
+    right: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        gap: 250px;
+        padding: 20px;
+        border-radius: 5px;
+
+        h3 {
+            color: #223263;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 18px;
+
+            span {
+                font-weight: 700;
+                color: #fb7181;
+            }
+        }
+
+        p:last-child {
+            color: #40bfff;
+            font-size: 30px;
+            font-weight: 700;
+        }
+    }
+
+    &__card:first-child,
+    &__card:nth-child(2),
+    &__card:last-child {
+        background-position: center !important;
+        background-size: cover !important;
+    }
+
+    &__card:first-child {
+        background: url("../../assets/images/uhero-1.png") no-repeat;
+    }
+
+    &__card:nth-child(2) {
+        background: url("../../assets/images/uhero-2.png") no-repeat;
+    }
+
+    &__card:last-child {
+        background: url("../../assets/images/uhero-3.png") no-repeat;
+
+    }
+
+    &__card-desc {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 800px) {
+    .under-hero {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        height: 400px;
+        background-image: url("../../assets/images/hero-bg1.png");
+
+        h1 {
+            font-size: 34px;
+        }
+    }
+}
+
+
+@media (max-width: 400px) {
+    .hero {
+        height: 200px;
+        background-image: url("../../assets/images/hero-bg1.png");
+
+        h1 {
+            font-size: 34px;
+        }
     }
 }
