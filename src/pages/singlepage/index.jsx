@@ -17,7 +17,7 @@ const SinglePage = () => {
 
   return (
     <main>
-      <div className={`'singlepage container'`}>
+      <div className='singlepage container'>
         <div className="singlepage__img">
           <img src={data?.image} alt="" />
         </div>

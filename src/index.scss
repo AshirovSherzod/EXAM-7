@@ -33,17 +33,30 @@ button {
     overflow: hidden;
 }
 
+.hero {
+    margin-bottom: 350px;
+}
+
 .products {
-    margin-top: 350px;
+    margin: 30px auto;
 }
 
 .description {
     margin-top: 100px;
 }
 
+.running {
+    margin-top: 80px;
+}
+
+.contact {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
 @media (max-width: 800px) {
-    .products {
-        margin-top: 80px;
+    .hero {
+        margin-bottom: 80px;
     }
 }
 

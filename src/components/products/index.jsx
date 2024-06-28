@@ -2,19 +2,20 @@ import React, { memo, useEffect, useState } from 'react'
 
 import './products.scss'
 import ProductItem from '../../components/products/ProductItem'
-import { useGetAllProductsQuery } from '../../context/productsSlice'
+// import { useGetAllProductsQuery } from '../../context/productsSlice'
 import { useLocation } from 'react-router-dom'
 
-const Products = ({ limit }) => {
+const Products = ({ limit, setOffset, data, isLoading}) => {
 
     const { pathname } = useLocation()
     const [show, setShow] = useState(false)
-    const [offset, setOffset] = useState(1)
-    let perPageCount = limit
-    const { data, isLoading } = useGetAllProductsQuery({ limit: offset * perPageCount })
-
     useEffect(() => {
-        pathname.includes("/singlepage") ? setShow(true) : setShow(false)
+        if ( pathname.includes("/singlepage") || pathname.includes("/wishlist")) {
+            setShow(true)
+        }
+        else {
+            setShow(false)
+        }
     }, [])
 
 
@@ -22,7 +23,7 @@ const Products = ({ limit }) => {
         <ProductItem key={el.id} product={el} id={el.id} title={el.title} img={el.image} price={el.price} count={el.rating.count} />
     ))
     return (
-        <div className='products container'>
+        <div className={`products container ${show ? "style" : ""}`}>
             <div className={`products__title ${show ? "hidden" : ""}`}>
                 <h1>BEST SELLER</h1>
                 <ul>

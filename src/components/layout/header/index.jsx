@@ -66,7 +66,7 @@ const Header = () => {
                         <NavLink onClick={() => setShowBurger(false)} to={"/"}>HOME  <MdKeyboardArrowRight className='arrow'/></NavLink>
                         <NavLink onClick={() => setShowBurger(false)} to={"#"}>BAGS  <MdKeyboardArrowRight className='arrow'/></NavLink>
                         <NavLink onClick={() => setShowBurger(false)} to={"#"}>SNEAKERS  <MdKeyboardArrowRight className='arrow'/></NavLink>
-                        <NavLink onClick={() => setShowBurger(false)} to={"#"}>BELT  <MdKeyboardArrowRight className='arrow'/></NavLink>
+                        <NavLink onClick={() => setShowBurger(false)} to={"/login"}>LOGIN  <MdKeyboardArrowRight className='arrow'/></NavLink>
                         <NavLink onClick={() => setShowBurger(false)} to={"/contact"}>CONTACT    <MdKeyboardArrowRight className='arrow'/></NavLink>
                     </div>
                     <button onClick={() => setShowBurger(true)} className='nav__burger-btn'> <RxHamburgerMenu /></button>

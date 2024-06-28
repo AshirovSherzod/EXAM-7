@@ -2,9 +2,18 @@ import React, { memo } from 'react'
 import { CgShoppingCart } from 'react-icons/cg'
 import { CiHeart } from 'react-icons/ci'
 import { IoIosStar } from 'react-icons/io'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { wishlist } from '../../context/wishlistSlice'
+import { FaHeart, FaRegHeart } from 'react-icons/fa'
 
-const ProductItem = ({ id, title, img, price, count, }) => {
+const ProductItem = ({ id, title, img, price, count, product}) => {
+
+  const dispatch = useDispatch()
+  const data = useSelector(state => state.wishlist.value)
+
+
+
   return (
     <div className="products__cards__card">
       <div className="products__cards__card-img">
@@ -12,7 +21,13 @@ const ProductItem = ({ id, title, img, price, count, }) => {
           <img src={img} alt={title} />
         </Link>
         <div className="products__cards__card-hover">
-          <button><CiHeart /></button>
+          <button onClick={()=> dispatch(wishlist(product))}>
+          {data.some((el) => el.id === product.id) ? (
+                <FaHeart color="crimson" />
+              ) : (
+                <FaRegHeart />
+              )}
+          </button>
           <button><CgShoppingCart /></button>
         </div>
       </div>

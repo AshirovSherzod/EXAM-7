@@ -120,6 +120,7 @@
     height: 100vh;
     background: #aaa2;
     backdrop-filter: blur(3px);
+    z-index: 998;
 }
 
 
@@ -156,7 +157,7 @@
         background-color: #fff;
         border-right: 1px solid #ddd;
         transition: .4s;
-        z-index: 99;
+        z-index: 999;
 
         a {
             display: flex;
@@ -191,6 +192,10 @@
         left: 0;
         right: 0;
         border-top: 1px solid #ddd;
+        background-color: #fff;
+        // padding: 0px 100px;
+        width: 100%;
+        z-index: 9;
 
         &__items {
             justify-content: space-between;

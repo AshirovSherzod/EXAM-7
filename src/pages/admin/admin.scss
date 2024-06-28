@@ -1,0 +1,27 @@
+.admin {
+    padding: 100px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    h1 {
+        font-size: 64px;
+    }
+
+    &__desc {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    button {
+        width: 160px;
+        height: 40px;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        background: rgb(51, 160, 255);
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+    }
+}
