@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Counter from '../../components/counter';
 
 import './cart.scss'
-import { deleteToCart } from '../../context/cartSlice';
+import { clearToCart, deleteToCart } from '../../context/cartSlice';
 import { useGetValue } from '../../hooks/useGetValue'
 
 const BOT_TOKEN = "7398728173:AAFBRewLYedKk8QzPkuPgic1W3Tt6mv4rzc"
@@ -23,8 +23,8 @@ const Cart = () => {
   const [showModal, setShowModal] = useState(false)
   const { formData, handleChange } = useGetValue(initialState)
 
-  useEffect(()=> {
-    window.scroll(0,0)
+  useEffect(() => {
+    window.scroll(0, 0)
   }, [])
 
   const handleSendMessage = (e) => {
@@ -37,6 +37,8 @@ const Cart = () => {
     let api = new XMLHttpRequest()
     api.open("GET", url, true)
     api.send()
+    setShowModal(false)
+    dispatch(clearToCart())
   }
 
   let carts = data?.map(el => (
@@ -74,17 +76,17 @@ const Cart = () => {
         showModal
           ?
           <>
-            <div onClick={()=> setShowModal(false)} className="cart__overlay"></div>
+            <div onClick={() => setShowModal(false)} className="cart__overlay"></div>
             <form onSubmit={handleSendMessage} action="" className='cart__modal'>
               <div className="cart__modal-close">
-                <button onClick={()=> setShowModal(false)}><IoClose /></button>
+                <button onClick={() => setShowModal(false)}><IoClose /></button>
               </div>
-              <input value={formData.firstname} onChange={handleChange} name='firstname' type="text" placeholder='First Nmae' required/>
-              <input value={formData.lastname} onChange={handleChange} name='lastname' type="text" placeholder='Last Name' required/>
-              <input value={formData.email} onChange={handleChange} name='email' type="text" placeholder='Email' required/>
-              <input value={formData.mobile} onChange={handleChange} name='mobile' type="text" placeholder='Mobile Phone' required/>
+              <input value={formData.firstname} onChange={handleChange} name='firstname' type="text" placeholder='First Nmae' required />
+              <input value={formData.lastname} onChange={handleChange} name='lastname' type="text" placeholder='Last Name' required />
+              <input value={formData.email} onChange={handleChange} name='email' type="text" placeholder='Email' required />
+              <input value={formData.mobile} onChange={handleChange} name='mobile' type="text" placeholder='Mobile Phone' required />
               <div className="cart__modal-btn">
-                <button >Go To Payment</button>
+                <button>Go To Payment</button>
               </div>
             </form>
           </>
