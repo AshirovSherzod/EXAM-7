@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import Products from '../../components/products';
 
@@ -9,7 +9,9 @@ const Wishlist = () => {
 
   const data = useSelector(state => state.wishlist.value)
 
-  console.log(data);
+  useEffect(()=> {
+    window.scroll(0,0)
+  }, [])
 
   return (
     <main>

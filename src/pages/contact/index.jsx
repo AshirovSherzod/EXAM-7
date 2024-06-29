@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import './contact.scss'
 import Search from '../../components/search'
@@ -20,6 +20,10 @@ const Contact = () => {
 
 
   const { formData, handleChange } = useGetValue(initialState)
+
+  useEffect(()=> {
+    window.scroll(0,0)
+  }, [])
 
   const handleSendMessage = (e) => {
     e.preventDefault()

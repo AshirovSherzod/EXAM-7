@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import './admin.scss'
 import { useDispatch } from 'react-redux'
@@ -6,6 +6,11 @@ import { logout } from '../../context/authSlice'
 
 const Admin = () => {
   const dispatch = useDispatch()
+
+  useEffect(()=> {
+    window.scroll(0,0)
+  }, [])
+
   return (
     <main className='admin container'>
       <h1>Admin Panel</h1>

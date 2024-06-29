@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoClose } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import Counter from '../../components/counter';
@@ -22,6 +22,10 @@ const Cart = () => {
   const data = useSelector(state => state.cart.value)
   const [showModal, setShowModal] = useState(false)
   const { formData, handleChange } = useGetValue(initialState)
+
+  useEffect(()=> {
+    window.scroll(0,0)
+  }, [])
 
   const handleSendMessage = (e) => {
     e.preventDefault()
