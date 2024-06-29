@@ -75,10 +75,10 @@ const Cart = () => {
               <div className="cart__modal-close">
                 <button onClick={()=> setShowModal(false)}><IoClose /></button>
               </div>
-              <input value={formData.firstname} onChange={handleChange} name='firstname' type="text" placeholder='First Nmae' />
-              <input value={formData.lastname} onChange={handleChange} name='lastname' type="text" placeholder='Last Name' />
-              <input value={formData.email} onChange={handleChange} name='email' type="text" placeholder='Email' />
-              <input value={formData.mobile} onChange={handleChange} name='mobile' type="text" placeholder='Mobile Phone' />
+              <input value={formData.firstname} onChange={handleChange} name='firstname' type="text" placeholder='First Nmae' required/>
+              <input value={formData.lastname} onChange={handleChange} name='lastname' type="text" placeholder='Last Name' required/>
+              <input value={formData.email} onChange={handleChange} name='email' type="text" placeholder='Email' required/>
+              <input value={formData.mobile} onChange={handleChange} name='mobile' type="text" placeholder='Mobile Phone' required/>
               <div className="cart__modal-btn">
                 <button >Go To Payment</button>
               </div>

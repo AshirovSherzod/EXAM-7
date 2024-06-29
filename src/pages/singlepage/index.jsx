@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useGetAllProductsQuery, useGetSingleProductQuery } from '../../context/productsSlice'
 import { IoIosStar } from 'react-icons/io'
@@ -9,6 +9,10 @@ import { BsTwitter } from 'react-icons/bs'
 import './singlepage.scss'
 import Products from '../../components/products'
 import Counter from '../../components/counter'
+import { useDispatch, useSelector } from 'react-redux'
+import { wishlist } from '../../context/wishlistSlice'
+import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import { addToCart } from '../../context/cartSlice'
 
 const SinglePage = () => {
   let id = useParams()
@@ -16,7 +20,13 @@ const SinglePage = () => {
   const { data } = useGetSingleProductQuery(id.id)
   const [offset, setOffset] = useState(1)
   const { data: productsData, isLoading } = useGetAllProductsQuery({ limit: offset * 4 })
+  const dispatch = useDispatch()
+  const wishlist = useSelector(state => state.wishlist.value)
 
+
+  useEffect(()=> {
+    window.scroll(0,0)
+  }, [])
 
   return (
     <main>
@@ -50,10 +60,16 @@ const SinglePage = () => {
           <div className="singlepage__content-bottom">
             <Counter />
             <div className="singlepage__content-bottom__btns">
-              <button className="singlepage__content-bottom__addtocart">
+              <button onClick={()=> dispatch(addToCart(data))} className="singlepage__content-bottom__addtocart">
                 <CgShoppingCart /> Add To Cart
               </button>
-              <button className='singlepage__content-bottom__heart'><CiHeart /></button>
+              <button onClick={() => dispatch(wishlist(data))} className='singlepage__content-bottom__heart'>
+                {wishlist.some((el) => el.id === data?.id) ? (
+                  <FaHeart color="crimson" />
+                ) : (
+                  <FaRegHeart />
+                )}
+              </button>
             </div>
           </div>
           <div className="singlepage__content-bottom__social">
@@ -68,7 +84,7 @@ const SinglePage = () => {
         <p>air max are always very comfortable fit, clean and just perfect in every way. just the box was too small and scrunched the sneakers up a little bit, not sure if the box was always this small but the 90s are and will always be one of my favorites.</p>
         <p>air max are always very comfortable fit, clean and just perfect in every way. just the box was too small and scrunched the sneakers up a little bit, not sure if the box was always this small but the 90s are and will always be one of my favorites.</p>
       </div>
-      <Products data={productsData} offset={offset} setOffset={setOffset}/>
+      <Products data={productsData} offset={offset} setOffset={setOffset} />
     </main>
   )
 }

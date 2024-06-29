@@ -204,15 +204,23 @@
     .products__cards {
         grid-gap: 10px;
     }
+
+    .products__loading {
+        grid-gap: 10px;
+    }
 }
 
 @media (max-width: 1010px) {
+
+    .products__loading,
     .products__cards {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 770px) {
+
+    .products__loading,
     .products__cards {
         grid-template-columns: repeat(2, 1fr);
 
@@ -220,6 +228,8 @@
 }
 
 @media (max-width: 550px) {
+
+    .products__loading,
     .products__cards {
         grid-template-columns: repeat(2, 1fr);
 
@@ -240,7 +250,10 @@
     }
 }
 
+
 @media (max-width: 430px) {
+
+    .products__loading,
     .products__cards {
         grid-template-columns: repeat(1, 1fr);
     }

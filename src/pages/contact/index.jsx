@@ -47,17 +47,14 @@ const Contact = () => {
         <form onSubmit={handleSendMessage} action="" className='contact__content-form'>
           <div className="contact__content-form__input">
             <label htmlFor="name">Full Name</label>
-            <input value={formData.name} onChange={handleChange} type="text" id='name' name='name'/>
-            {
-              console.log(formData.name)
-            }
+            <input value={formData.name} onChange={handleChange} type="text" id='name' name='name' required/>
           </div>
           <div className="contact__content-form__input">
             <label htmlFor="email">Email</label>
-            <input value={formData.email} onChange={handleChange} type="text" id='email' name='email'/>
+            <input value={formData.email} onChange={handleChange} type="text" id='email' name='email' required/>
           </div>
           <div className="contact__content-form__input">
-            <textarea value={formData.message} onChange={handleChange} name="message" id=""></textarea>
+            <textarea value={formData.message} onChange={handleChange} name="message" id="" required></textarea>
           </div>
           <div className="contact__content-form__input">
             <button> Submit</button>
