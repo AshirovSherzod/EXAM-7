@@ -9,10 +9,14 @@ import { IoIosSearch } from 'react-icons/io'
 import logo from '../../../assets/icons/logo.svg'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { MdKeyboardArrowRight } from 'react-icons/md'
+import { useSelector } from 'react-redux'
 const Header = () => {
 
     const [showburger, setShowBurger] = useState(false)
     const [stickyHeader, setStickyHeader] = useState(false);
+    const data = useSelector(state => state.wishlist.value)
+    const cart = useSelector(state => state.cart.value)
+
 
 
     // useEffect(() => {
@@ -23,14 +27,14 @@ const Header = () => {
     //       setStickyHeader(false);
     //     }
     //   };
-  
+
     //   window.addEventListener("scroll", handleScroll);
-  
+
     //   return () => {
     //     window.removeEventListener("scroll", handleScroll);
     //   };
     // }, []);
-  
+
 
     return (
         <>
@@ -41,11 +45,23 @@ const Header = () => {
                     </NavLink>
                     <NavLink className="sub-header__items-link" to={"/wishlist"}>
                         <IoHeartOutline className='sub-header__items-icon' />
-                        <sub>0</sub>
+                        {
+                            data.length
+                                ?
+                                <sub>{data.length}</sub>
+                                : 
+                                <></>
+                        }
                     </NavLink>
                     <NavLink className="sub-header__items-link" to={"/cart"}>
                         <CgShoppingCart className='sub-header__items-icon' />
-                        <sub>0</sub>
+                        {
+                            cart.length
+                                ?
+                                <sub>{cart.length}</sub>
+                                :
+                                <></>
+                        }
                     </NavLink>
                     <p>Items</p>
                     <p>$0.00 <IoIosSearch className='sub-header__items-icon' /></p>
@@ -63,11 +79,11 @@ const Header = () => {
                         <div className="nav__links-btn">
                             <button onClick={() => setShowBurger(false)}> <IoClose /> </button>
                         </div>
-                        <NavLink onClick={() => setShowBurger(false)} to={"/"}>HOME  <MdKeyboardArrowRight className='arrow'/></NavLink>
-                        <NavLink onClick={() => setShowBurger(false)} to={"#"}>BAGS  <MdKeyboardArrowRight className='arrow'/></NavLink>
-                        <NavLink onClick={() => setShowBurger(false)} to={"#"}>SNEAKERS  <MdKeyboardArrowRight className='arrow'/></NavLink>
-                        <NavLink onClick={() => setShowBurger(false)} to={"/login"}>LOGIN  <MdKeyboardArrowRight className='arrow'/></NavLink>
-                        <NavLink onClick={() => setShowBurger(false)} to={"/contact"}>CONTACT    <MdKeyboardArrowRight className='arrow'/></NavLink>
+                        <NavLink onClick={() => setShowBurger(false)} to={"/"}>HOME  <MdKeyboardArrowRight className='arrow' /></NavLink>
+                        <NavLink onClick={() => setShowBurger(false)} to={"#"}>BAGS  <MdKeyboardArrowRight className='arrow' /></NavLink>
+                        <NavLink onClick={() => setShowBurger(false)} to={"#"}>SNEAKERS  <MdKeyboardArrowRight className='arrow' /></NavLink>
+                        <NavLink onClick={() => setShowBurger(false)} to={"/login"}>LOGIN  <MdKeyboardArrowRight className='arrow' /></NavLink>
+                        <NavLink onClick={() => setShowBurger(false)} to={"/contact"}>CONTACT    <MdKeyboardArrowRight className='arrow' /></NavLink>
                     </div>
                     <button onClick={() => setShowBurger(true)} className='nav__burger-btn'> <RxHamburgerMenu /></button>
 

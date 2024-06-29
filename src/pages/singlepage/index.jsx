@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useGetSingleProductQuery } from '../../context/productsSlice'
+import { useGetAllProductsQuery, useGetSingleProductQuery } from '../../context/productsSlice'
 import { IoIosStar } from 'react-icons/io'
-import { FaMinus, FaPlus } from 'react-icons/fa'
 import { CgFacebook, CgShoppingCart } from 'react-icons/cg'
 import { CiHeart } from 'react-icons/ci'
 import { BsTwitter } from 'react-icons/bs'
 
 import './singlepage.scss'
 import Products from '../../components/products'
+import Counter from '../../components/counter'
 
 const SinglePage = () => {
   let id = useParams()
 
   const { data } = useGetSingleProductQuery(id.id)
+  const [offset, setOffset] = useState(1)
+  const { data: productsData, isLoading } = useGetAllProductsQuery({ limit: offset * 4 })
+
 
   return (
     <main>
@@ -45,11 +48,7 @@ const SinglePage = () => {
             </div>
           </div>
           <div className="singlepage__content-bottom">
-            <div className="singlepage__content-bottom__counter">
-              <button><FaMinus /></button>
-              <button>0</button>
-              <button><FaPlus /></button>
-            </div>
+            <Counter />
             <div className="singlepage__content-bottom__btns">
               <button className="singlepage__content-bottom__addtocart">
                 <CgShoppingCart /> Add To Cart
@@ -69,7 +68,7 @@ const SinglePage = () => {
         <p>air max are always very comfortable fit, clean and just perfect in every way. just the box was too small and scrunched the sneakers up a little bit, not sure if the box was always this small but the 90s are and will always be one of my favorites.</p>
         <p>air max are always very comfortable fit, clean and just perfect in every way. just the box was too small and scrunched the sneakers up a little bit, not sure if the box was always this small but the 90s are and will always be one of my favorites.</p>
       </div>
-      <Products limit={4}/>
+      <Products data={productsData} offset={offset} setOffset={setOffset}/>
     </main>
   )
 }

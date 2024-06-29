@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { wishlist } from '../../context/wishlistSlice'
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import { addToCart } from '../../context/cartSlice'
 
 const ProductItem = ({ id, title, img, price, count, product}) => {
 
@@ -28,7 +29,7 @@ const ProductItem = ({ id, title, img, price, count, product}) => {
                 <FaRegHeart />
               )}
           </button>
-          <button><CgShoppingCart /></button>
+          <button onClick={()=> dispatch(addToCart(product))}><CgShoppingCart /></button>
         </div>
       </div>
       <Link to={`/singlepage/${id}`}>

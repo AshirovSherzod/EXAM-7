@@ -5,12 +5,12 @@ import ProductItem from '../../components/products/ProductItem'
 // import { useGetAllProductsQuery } from '../../context/productsSlice'
 import { useLocation } from 'react-router-dom'
 
-const Products = ({ limit, setOffset, data, isLoading}) => {
+const Products = ({ setOffset, data, isLoading }) => {
 
     const { pathname } = useLocation()
     const [show, setShow] = useState(false)
     useEffect(() => {
-        if ( pathname.includes("/singlepage") || pathname.includes("/wishlist")) {
+        if (pathname.includes("/singlepage") || pathname.includes("/wishlist")) {
             setShow(true)
         }
         else {
@@ -34,7 +34,80 @@ const Products = ({ limit, setOffset, data, isLoading}) => {
                     <li>Sunglasses</li>
                 </ul>
             </div>
-            <div className="products__cards"> {cards} </div>
+            {
+                isLoading
+                    ?
+                    <div className="products__loading">
+                        <div className="products__loading__card">
+                            <div className="products__loading__card-img"></div>
+                            <div className="products__loading__card-content">
+                                <div ></div>
+                                <div ></div>
+                                <div ></div>
+                            </div>
+                        </div>
+                        <div className="products__loading__card">
+                            <div className="products__loading__card-img"></div>
+                            <div className="products__loading__card-content">
+                                <div ></div>
+                                <div ></div>
+                                <div ></div>
+                            </div>
+                        </div>
+                        <div className="products__loading__card">
+                            <div className="products__loading__card-img"></div>
+                            <div className="products__loading__card-content">
+                                <div ></div>
+                                <div ></div>
+                                <div ></div>
+                            </div>
+                        </div>
+                        <div className="products__loading__card">
+                            <div className="products__loading__card-img"></div>
+                            <div className="products__loading__card-content">
+                                <div ></div>
+                                <div ></div>
+                                <div ></div>
+                            </div>
+                        </div>
+                        <div className="products__loading__card">
+                            <div className="products__loading__card-img"></div>
+                            <div className="products__loading__card-content">
+                                <div ></div>
+                                <div ></div>
+                                <div ></div>
+                            </div>
+                        </div>
+                        <div className="products__loading__card">
+                            <div className="products__loading__card-img"></div>
+                            <div className="products__loading__card-content">
+                                <div ></div>
+                                <div ></div>
+                                <div ></div>
+                            </div>
+                        </div>
+                        <div className="products__loading__card">
+                            <div className="products__loading__card-img"></div>
+                            <div className="products__loading__card-content">
+                                <div ></div>
+                                <div ></div>
+                                <div ></div>
+                            </div>
+                        </div>
+                        <div className="products__loading__card">
+                            <div className="products__loading__card-img"></div>
+                            <div className="products__loading__card-content">
+                                <div ></div>
+                                <div ></div>
+                                <div ></div>
+                            </div>
+                        </div>
+                    </div>
+                    :
+                    <div className="products__cards">
+                        {cards}
+                    </div>
+            }
             <div className={`products__btn ${show ? "hidden" : ""}`}>
                 <button className='products__btn' onClick={() => setOffset(prev => prev + 1)}>Load More</button>
             </div>

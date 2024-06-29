@@ -1,0 +1,23 @@
+.counter {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid transparent;
+
+    // border-radius: 5px;
+    button {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid transparent;
+        background-color: #f6f7f8;
+        color: #33a0ff;
+    }
+
+    button:nth-child(2) {
+        color: black;
+        font-size: 16px;
+        font-weight: 500;
+    }
+}

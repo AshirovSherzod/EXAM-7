@@ -2,26 +2,31 @@ import React, { useState } from 'react'
 
 import './contact.scss'
 import Search from '../../components/search'
+import { useGetValue } from '../../hooks/useGetValue'
 
 const BOT_TOKEN = "7398728173:AAFBRewLYedKk8QzPkuPgic1W3Tt6mv4rzc"
 const CHAT_ID = "-4216348753"
 
 // https://api.telegram.org/bot7398728173:AAFBRewLYedKk8QzPkuPgic1W3Tt6mv4rzc/getUpdates
 
+const initialState = {
+  name: "",
+  email: "",
+  message: "",
+}
 
 
 const Contact = () => {
-   
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [message, setMessage] = useState("")
+
+
+  const { formData, handleChange } = useGetValue(initialState)
 
   const handleSendMessage = (e) => {
     e.preventDefault()
     let text = 'Xabarlar %0A%0A'
-    text += `Ismi: ${name} %0A`
-    text += `Email: ${email} %0A`
-    text += `Message: ${message} %0A`
+    text += `Ismi:  ${formData.name} %0A`
+    text += `Email:  ${formData.email} %0A`
+    text += `Message:   ${formData.message} %0A`
     let url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`
     let api = new XMLHttpRequest()
     api.open("GET", url, true)
@@ -42,14 +47,17 @@ const Contact = () => {
         <form onSubmit={handleSendMessage} action="" className='contact__content-form'>
           <div className="contact__content-form__input">
             <label htmlFor="name">Full Name</label>
-            <input value={name} onChange={(e)=> setName( e.target.value)} type="text" id='name' />
+            <input value={formData.name} onChange={handleChange} type="text" id='name' name='name'/>
+            {
+              console.log(formData.name)
+            }
           </div>
           <div className="contact__content-form__input">
             <label htmlFor="email">Email</label>
-            <input value={email} onChange={(e)=> setEmail( e.target.value)}  type="text" id='email' />
+            <input value={formData.email} onChange={handleChange} type="text" id='email' name='email'/>
           </div>
           <div className="contact__content-form__input">
-            <textarea value={message} onChange={(e)=> setMessage( e.target.value)}  name="" id=""></textarea>
+            <textarea value={formData.message} onChange={handleChange} name="message" id=""></textarea>
           </div>
           <div className="contact__content-form__input">
             <button> Submit</button>

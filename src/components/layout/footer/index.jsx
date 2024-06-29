@@ -29,31 +29,31 @@ const Footer = () => {
         <div className="footer__middle row">
           <ul>
             <h3>Infomation</h3>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Infomation</a></li>
-            <li><a href="">Privacy Policy</a></li>
-            <li><a href="">Terms & Conditions</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Infomation</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
           </ul>
           <ul>
             <h3>Service</h3>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Infomation</a></li>
-            <li><a href="">Privacy Policy</a></li>
-            <li><a href="">Terms & Conditions</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Infomation</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
           </ul>
           <ul>
             <h3>My Account</h3>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Infomation</a></li>
-            <li><a href="">Privacy Policy</a></li>
-            <li><a href="">Terms & Conditions</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Infomation</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
           </ul>
           <ul>
             <h3>Our Offers</h3>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Infomation</a></li>
-            <li><a href="">Privacy Policy</a></li>
-            <li><a href="">Terms & Conditions</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Infomation</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
           </ul>
         </div>
         <div className="footer__bottom">
